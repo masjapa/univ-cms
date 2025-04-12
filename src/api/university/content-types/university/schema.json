@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "universities",
+  "info": {
+    "singularName": "university",
+    "pluralName": "universities",
+    "displayName": "University",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "viewStatus": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "studentCount": {
+      "type": "biginteger",
+      "required": true,
+      "default": "0"
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "rating": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "rank": {
+      "type": "biginteger"
+    },
+    "jenjangPendidikan": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "estimateCost": {
+      "type": "biginteger"
+    },
+    "deadline": {
+      "type": "date"
+    },
+    "jurusan": {
+      "type": "string"
+    },
+    "programs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::program.program",
+      "mappedBy": "universities"
+    }
+  }
+}
